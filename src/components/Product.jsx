@@ -204,11 +204,6 @@ function Product({ product, total, money, basket, setBasket, value }) {
           marginLeft="10px"
           borderRadius="5px"
         >
-          {/* <Uppernumber>
-            <Typography className="amount" variant="body1">
-              {basketItem && basketItem.amount || 0}
-            </Typography>
-          </Uppernumber> */}
           <IconButton variant="icon" onClick={toggleFavorite}>
             {checkIfFavorite(product.id) ? <HeartIcon /> : <HeartIconEmpty />}
           </IconButton>

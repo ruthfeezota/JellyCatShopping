@@ -6,9 +6,9 @@ import { IoIosHeart, IoMdHeartEmpty } from 'react-icons/io';
 
 const IconButton = styled(Button)`
   && {
-    padding: 0; 
-    min-width: unset; 
-    width: auto; 
+    padding: 0;
+    min-width: unset;
+    width: auto;
     left: 0;
     margin-top: auto;
     padding-left: 100px;
@@ -16,15 +16,15 @@ const IconButton = styled(Button)`
 
   @media (max-width: 767px) {
     && {
-    padding: 0; 
-    min-width: unset; 
-    width: auto; 
+    padding: 0;
+    min-width: unset;
+    width: auto;
     left: 0;
     margin-top: auto;
     padding-left: 65px;
   }
   }
-  
+
 `;
 
 const HeartIconEmpty = styled(IoMdHeartEmpty)`
@@ -37,7 +37,7 @@ const HeartIcon = styled(IoIosHeart)`
 `;
 
 function FavoriteAddHeart({ productId }) {
-    
+
   const [isFavorite, setIsFavorite] = useState(checkIfFavorite(productId));
 
   function checkIfFavorite(productId) {
@@ -58,7 +58,7 @@ function FavoriteAddHeart({ productId }) {
         },
       });
     } else {
-      // Favoriden kaldır
+
       const updatedFavorites = favorites.filter((favId) => favId !== productId);
       localStorage.setItem('Favorites', JSON.stringify(updatedFavorites));
 
@@ -68,7 +68,7 @@ function FavoriteAddHeart({ productId }) {
         },
       });
     }
-    setIsFavorite(!isFavorite); 
+    setIsFavorite(!isFavorite);
   };
 
   return (

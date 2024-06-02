@@ -1,5 +1,4 @@
 import React from 'react'
-import ShoppingPng from '../assets/CatSample2.jpg'
 import '../css/Loginİmage.css'
 function Loginİmage() {
   return (

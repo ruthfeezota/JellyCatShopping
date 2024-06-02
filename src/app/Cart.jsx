@@ -8,14 +8,7 @@ import Header from '../components/Search'
 import '../css/Cart.css';
 import '../css/newCart.css'
 export default function Cart() {
-  // const[total, SetTotal] = useState('')
-  // useEffect(() => {
-  //   setTotal(
-  //       basket.reduce((acc, item) => {
-  //           return acc + item.total;
-  //       }, 0)
-  //   );
-  // }, [basket]);
+
 
 
   const [ProductCount, setProductCount] = useState(0);
@@ -49,12 +42,12 @@ export default function Cart() {
     const fetchProductDetails = async () => {
       const ProductIds = JSON.parse(localStorage.getItem('Products')) || [];
       const productsDetails = [];
-    
+
       for (const productInfo of ProductIds) {
-        const productId = productInfo.id; 
-        const productQuantity = productInfo.quantity; 
+        const productId = productInfo.id;
+        const productQuantity = productInfo.quantity;
         const product = products.find(product => product.id === productId);
-    
+
         if (product) {
           const productDetail = {
             thumbnail: product.thumbnail,
@@ -63,12 +56,12 @@ export default function Cart() {
             catogory: product.catogory,
             description: product.description,
             id: product.id,
-            quantity: productQuantity, 
+            quantity: productQuantity,
           };
           productsDetails.push(productDetail);
         }
       }
-    
+
       setProductDetails(productsDetails);
     };
 
@@ -80,7 +73,7 @@ export default function Cart() {
     const updatedFavorites = DeleteProducts.filter((product) => product.id !== productId);
     localStorage.setItem('Products', JSON.stringify(updatedFavorites));
     setProductDetails(prevDetails => prevDetails.filter(product => product.id !== productId));
-    setProductCount(prevCount => prevCount - 1); 
+    setProductCount(prevCount => prevCount - 1);
   };
 
   const AddQuantity = (productId) => {
@@ -90,7 +83,7 @@ export default function Cart() {
       productsInLocalStorage[productIndex].quantity += 1;
 
       localStorage.setItem('Products', JSON.stringify(productsInLocalStorage));
-      
+
       const updatedProductDetails = productDetails.map(product => {
         if (product.id === productId) {
           return {
@@ -100,7 +93,7 @@ export default function Cart() {
         }
         return product;
       });
-      
+
       setProductDetails(updatedProductDetails);
     }
   };
@@ -108,20 +101,20 @@ export default function Cart() {
   const RemoveQuantity = (productId) => {
     const productsInLocalStorage = JSON.parse(localStorage.getItem('Products')) || [];
     const productIndex = productsInLocalStorage.findIndex(product => product.id === productId);
-    
+
     if (productIndex !== -1 && productsInLocalStorage[productIndex].quantity > 0) {
       productsInLocalStorage[productIndex].quantity -= 1;
-  
+
       if (productsInLocalStorage[productIndex].quantity === 0) {
         const updatedProductsInLocalStorage = productsInLocalStorage.filter(product => product.id !== productId);
         localStorage.setItem('Products', JSON.stringify(updatedProductsInLocalStorage));
-        
+
         const updatedProductDetails = productDetails.filter(product => product.id !== productId);
         setProductDetails(updatedProductDetails);
-        setProductCount(prevCount => prevCount - 1); 
+        setProductCount(prevCount => prevCount - 1);
       } else {
         localStorage.setItem('Products', JSON.stringify(productsInLocalStorage));
-        
+
         const updatedProductDetails = productDetails.map(product => {
           if (product.id === productId) {
             return {
@@ -148,7 +141,7 @@ export default function Cart() {
     },
     "justify-content-between",
   );
-  
+
   return (
     <>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
@@ -164,7 +157,7 @@ export default function Cart() {
                 <div className="col align-self-center text-right text-muted">{ProductCount} items</div>
                 {ProductCount === 0 && <CartProductNotFound />}
               </div>
-            </div>    
+            </div>
             {productDetails.map((product, index) => (
             <div className="row border-top border-bottom">
               <div className="row main align-items-center">
@@ -189,7 +182,7 @@ export default function Cart() {
               <div className="col" style={{ paddingLeft: 13 }}>{ProductCount} product Amount:</div>
               <div className="col text-right">$ {totalPrice}</div>
             </div>
-         
+
             <form>
               <p>SHIPPING</p>
               <select><option className="text-muted">Standard-Delivery- $5.00</option></select>

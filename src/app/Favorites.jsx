@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import FavNotFound from '../components/FavNotFound';
 import { FaRegTrashCan } from "react-icons/fa6";
 import Header from '../components/Search'
-import Button from "@mui/material/Button";
-import { IoIosHeart, IoMdHeartEmpty } from "react-icons/io";
+import { IoIosHeart } from "react-icons/io";
 import '../css/Favorites.css'
 
 export default function Favorites({ product, total, money, basket, setBasket, value }) {

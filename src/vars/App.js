@@ -4,7 +4,6 @@ import Home from '../app/Home';
 import Cart from '../app/Cart';
 import Favorites from '../app/Favorites';
 import Categories from '../app/Categories'
-import SearchBar from '../components/Search';
 
 function App() {
   return (
