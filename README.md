@@ -1,4 +1,4 @@
-### Jellycat Front End Assessment Ruth Zota
+# Jellycat Front End Assessment Ruth Zota
 
 You are tasked with creating an eCommerce collection page that displays a list of
 products retrieved from the dummyjson.com API. The page should include features
@@ -26,12 +26,12 @@ listings based on relevant attributes.
 - Ensure Responsiveness: Prioritize responsiveness, especially
 considering that the majority of our customers are mobile users.
 
-# `Third-party icons are used`
+### `Third-party icons are used`
 - Utilize Third-Party Packages: You may use third-party packages to enhance
 functionality or streamline processes. Make sure to document any dependencies
 used in your project.
 
-# `This is the README.md`
+### `This is the README.md`
 - Include README.md File: Provide clear instructions for running the project.
 
 ### `Steps to run app below`
@@ -60,7 +60,7 @@ necessary files.
 
 `git clone `
 
-## Install React Packages
+### Install React Packages
 
 `npm install react-scripts`
 `npm install`
